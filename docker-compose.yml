@@ -14,13 +14,15 @@ services:
     image: php:7.2-fpm
     depends_on:
       - mariadb
+    volumes:
+      - ~/Docker/php:/var/www/html
   mariadb:
     image: mariadb:10.5
     restart: 'always'
     volumes: 
       - /var/lib/mysql/data
       - /var/lib/mysql/logs
-      - /var/docker/mariadb/conf:/etc/mysql
+      - ~/Docker/mariadb/conf:/etc/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: hospital
