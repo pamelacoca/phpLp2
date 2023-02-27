@@ -2,33 +2,49 @@ version: "3"
 
 services:
   web:
+    build: '~/Docker/apache'
     image: httpd:latest
     restart: 'always'
     depends_on:
       - mariadb
+      - php
     ports:
       - '8080:80'
     links:
       - mariadb
+    volumes:
+      - ~/Docker/php:/usr/local/apache2/htdocs
+      - ~/Docker/php:/var/www/html
+    networks:
+      - backend
+      - frontend
   php:
+    build: '~/Docker/php'
     image: php:7.2-fpm
     depends_on:
       - mariadb
     volumes:
       - ~/Docker/php:/var/www/html
+      - ~/Docker/php:/usr/local/apache2/htdocs
+    networks:
+      - backend
   mariadb:
+    build: '~/Docker/mariadb'
     image: mariadb:10.5
     restart: 'always'
     volumes: 
       - /var/lib/mysql/data
       - /var/lib/mysql/logs
       - ~/Docker/mariadb/conf:/etc/mysql
+    networks:
+      - backend
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: hospital
       MYSQL_USER: user
       MYSQL_PASSWORD: senha
   phpmyadmin:
+    build: '~/Docker/phpmyadmin'
     image: phpmyadmin
     restart: 'always'
     ports:
@@ -36,5 +52,10 @@ services:
     environment:
       PMA_HOST: mariadb
       PMA_PASSWORD: senha
+    networks:
+      - backend
 volumes:
   mariadb:
+networks:
+  backend:
+  frontend:
