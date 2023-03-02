@@ -2,8 +2,8 @@ version: "3"
 
 services:
   web:
-    build: '~/Docker/apache'
-    image: httpd:latest
+    container_name: 'apache'
+    build: '~/Docker/phpLp2/apache/apacheDocker'
     restart: 'always'
     depends_on:
       - mariadb
@@ -13,29 +13,29 @@ services:
     links:
       - mariadb
     volumes:
-      - ~/Docker/php:/usr/local/apache2/htdocs
-      - ~/Docker/php:/var/www/html
+      - ~/Docker/phpLp2/php:/usr/local/apache2/htdocs
+      - ~/Docker/phpLp2/php:/var/www/html
     networks:
       - backend
       - frontend
   php:
-    build: '~/Docker/php'
-    image: php:7.2-fpm
+    build: '~/Docker/phpLp2/php/phpDocker'
     depends_on:
       - mariadb
     volumes:
-      - ~/Docker/php:/var/www/html
-      - ~/Docker/php:/usr/local/apache2/htdocs
+      - ~/Docker/phpLp2/php:/var/www/html
+      - ~/Docker/phpLp2/php:/usr/local/apache2/htdocs
+    ports:
+      - '9000:80'
     networks:
       - backend
   mariadb:
-    build: '~/Docker/mariadb'
     image: mariadb:10.5
     restart: 'always'
     volumes: 
       - /var/lib/mysql/data
       - /var/lib/mysql/logs
-      - ~/Docker/mariadb/conf:/etc/mysql
+      - ~/Docker/phpLp2/mariadb/conf:/etc/mysql
     networks:
       - backend
     environment:
@@ -44,7 +44,6 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: senha
   phpmyadmin:
-    build: '~/Docker/phpmyadmin'
     image: phpmyadmin
     restart: 'always'
     ports:
