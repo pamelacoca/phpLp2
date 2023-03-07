@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 212);
+}
+
+.formulario-imagem {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(217deg, rgba(172,49,25,0.9682247899159664) 27%, rgba(156,45,154,1) 83%);
+}
+
+img {
+    width: 550px;
+}
+
+.formulario {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    /* Deixar os inputs um abaixo do outro */
+    flex-direction: column;
+    background-color: white;
+    padding: 170px;
+}
+
+.cabecalho-formulario {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botao-login {
+    display: flex;
+    align-items: center;
+}
+
+.botao-login button {
+    border: none;
+    background-color: #0c0ca980;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao-login button:hover {
+    background-color: #0a0a9fb1;
+}
+
+.botao-login button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+}
+
+.grupo-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-box input{
+    margin: 8px 0;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px black;
+}
+
+.input-box input:hover {
+    background-color: rgb(216, 214, 214);
+}
+
+.input-box label {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+}
+
+.span-required {
+    display: none;
+}
+
+.botao-cadastrar {
+    width: 130px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: medium;
+    font-weight: 500;
+    background-color: rgb(172,49,25);
+    color: #fff;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.voltar {
+    position: relative;
+    z-index: 800;
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+html {
+    height: 100%; /* garante que o gradiente se estenda por toda a página */
+    background: linear-gradient(217deg, rgba(172,49,25,0.9682247899159664) 27%, rgba(156,45,154,1) 83%);
+  }
+  
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.container {
+    border: none;
+    height: 500px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 212);
+}
+
+.container h1{
+    font-weight: 600;
+}
+
+.container p{
+    font-size: larger;
+}
+
+.container-links {
+    text-align: center;
+    margin: 20px;
+}
+
+.botao {
+    width: 130px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: medium;
+    font-weight: 500;
+    background-color: rgb(172,49,25);
+    color: #fff;
+    padding: 15px 20px;
+    cursor: pointer;
+    align-items: center;
+}
