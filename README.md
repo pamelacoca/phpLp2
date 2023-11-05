@@ -1,1 +1,1 @@
-# phpLp2
+# PHP project using docker
